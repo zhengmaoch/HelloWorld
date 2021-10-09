@@ -56,16 +56,16 @@ CMAKE_BINARY_DIR = /home/chang/c++/HelloWorld/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
+# Special rule for the target test
+test/fast: test
 
-.PHONY : edit_cache/fast
+.PHONY : test/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -77,6 +77,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,21 +122,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-lib/CMakeFiles/hello_static.dir/rule:
-	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f CMakeFiles/Makefile2 lib/CMakeFiles/hello_static.dir/rule
-.PHONY : lib/CMakeFiles/hello_static.dir/rule
-
-# Convenience name for target.
-hello_static: lib/CMakeFiles/hello_static.dir/rule
-
-.PHONY : hello_static
-
-# fast build rule for target.
-hello_static/fast:
-	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello_static.dir/build.make lib/CMakeFiles/hello_static.dir/build
-.PHONY : hello_static/fast
-
-# Convenience name for target.
 lib/CMakeFiles/hello.dir/rule:
 	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f CMakeFiles/Makefile2 lib/CMakeFiles/hello.dir/rule
 .PHONY : lib/CMakeFiles/hello.dir/rule
@@ -140,14 +136,29 @@ hello/fast:
 	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello.dir/build.make lib/CMakeFiles/hello.dir/build
 .PHONY : hello/fast
 
+# Convenience name for target.
+lib/CMakeFiles/hello_static.dir/rule:
+	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f CMakeFiles/Makefile2 lib/CMakeFiles/hello_static.dir/rule
+.PHONY : lib/CMakeFiles/hello_static.dir/rule
+
+# Convenience name for target.
+hello_static: lib/CMakeFiles/hello_static.dir/rule
+
+.PHONY : hello_static
+
+# fast build rule for target.
+hello_static/fast:
+	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello_static.dir/build.make lib/CMakeFiles/hello_static.dir/build
+.PHONY : hello_static/fast
+
 libHello.o: libHello.cpp.o
 
 .PHONY : libHello.o
 
 # target to build an object file
 libHello.cpp.o:
-	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello_static.dir/build.make lib/CMakeFiles/hello_static.dir/libHello.cpp.o
 	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello.dir/build.make lib/CMakeFiles/hello.dir/libHello.cpp.o
+	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello_static.dir/build.make lib/CMakeFiles/hello_static.dir/libHello.cpp.o
 .PHONY : libHello.cpp.o
 
 libHello.i: libHello.cpp.i
@@ -156,8 +167,8 @@ libHello.i: libHello.cpp.i
 
 # target to preprocess a source file
 libHello.cpp.i:
-	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello_static.dir/build.make lib/CMakeFiles/hello_static.dir/libHello.cpp.i
 	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello.dir/build.make lib/CMakeFiles/hello.dir/libHello.cpp.i
+	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello_static.dir/build.make lib/CMakeFiles/hello_static.dir/libHello.cpp.i
 .PHONY : libHello.cpp.i
 
 libHello.s: libHello.cpp.s
@@ -166,8 +177,8 @@ libHello.s: libHello.cpp.s
 
 # target to generate assembly for a file
 libHello.cpp.s:
-	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello_static.dir/build.make lib/CMakeFiles/hello_static.dir/libHello.cpp.s
 	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello.dir/build.make lib/CMakeFiles/hello.dir/libHello.cpp.s
+	cd /home/chang/c++/HelloWorld/build && $(MAKE) -f lib/CMakeFiles/hello_static.dir/build.make lib/CMakeFiles/hello_static.dir/libHello.cpp.s
 .PHONY : libHello.cpp.s
 
 # Help Target
@@ -176,10 +187,11 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
-	@echo "... rebuild_cache"
-	@echo "... hello_static"
+	@echo "... test"
 	@echo "... hello"
+	@echo "... hello_static"
+	@echo "... rebuild_cache"
+	@echo "... edit_cache"
 	@echo "... libHello.o"
 	@echo "... libHello.i"
 	@echo "... libHello.s"

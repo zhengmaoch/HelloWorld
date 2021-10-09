@@ -56,6 +56,17 @@ CMAKE_BINARY_DIR = /home/chang/c++/HelloWorld/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -111,19 +122,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named hello_static
-
-# Build rule for target.
-hello_static: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hello_static
-.PHONY : hello_static
-
-# fast build rule for target.
-hello_static/fast:
-	$(MAKE) -f lib/CMakeFiles/hello_static.dir/build.make lib/CMakeFiles/hello_static.dir/build
-.PHONY : hello_static/fast
-
-#=============================================================================
 # Target rules for targets named hello
 
 # Build rule for target.
@@ -135,6 +133,19 @@ hello: cmake_check_build_system
 hello/fast:
 	$(MAKE) -f lib/CMakeFiles/hello.dir/build.make lib/CMakeFiles/hello.dir/build
 .PHONY : hello/fast
+
+#=============================================================================
+# Target rules for targets named hello_static
+
+# Build rule for target.
+hello_static: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hello_static
+.PHONY : hello_static
+
+# fast build rule for target.
+hello_static/fast:
+	$(MAKE) -f lib/CMakeFiles/hello_static.dir/build.make lib/CMakeFiles/hello_static.dir/build
+.PHONY : hello_static/fast
 
 #=============================================================================
 # Target rules for targets named main
@@ -155,10 +166,11 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... test"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... hello_static"
 	@echo "... hello"
+	@echo "... hello_static"
 	@echo "... main"
 .PHONY : help
 
