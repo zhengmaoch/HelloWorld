@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/hello", // 表示可执行程序所在的路径，add_executable from CMakeLists.txt
+            "program": "${workspaceFolder}/bin/main", // 表示可执行程序所在的路径，add_executable from CMakeLists.txt
             "args": [], // 传递给程序的命令行参数，一般为空
             "stopAtEntry": false, // 调试器是否在目标的入口点停止
             "cwd": "${workspaceFolder}", // 项目目录
