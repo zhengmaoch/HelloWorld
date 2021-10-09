@@ -175,7 +175,7 @@ bin/preinstall:
 # Target rules for target bin/CMakeFiles/main.dir
 
 # All Build rule for target.
-bin/CMakeFiles/main.dir/all:
+bin/CMakeFiles/main.dir/all: lib/CMakeFiles/hello.dir/all
 	$(MAKE) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/depend
 	$(MAKE) -f bin/CMakeFiles/main.dir/build.make bin/CMakeFiles/main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chang/c++/HelloWorld/build/CMakeFiles --progress-num=5,6,7 "Built target main"
@@ -188,7 +188,7 @@ all: bin/CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
 bin/CMakeFiles/main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/c++/HelloWorld/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/c++/HelloWorld/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 bin/CMakeFiles/main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chang/c++/HelloWorld/build/CMakeFiles 0
 .PHONY : bin/CMakeFiles/main.dir/rule

@@ -5,5 +5,6 @@ bin/CMakeFiles/main.dir/hello.cpp.o: ../include/hello.h
 bin/CMakeFiles/main.dir/hello.cpp.o: ../src/hello.cpp
 
 bin/CMakeFiles/main.dir/main.cpp.o: ../include/hello.h
+bin/CMakeFiles/main.dir/main.cpp.o: ../include/libHello.h
 bin/CMakeFiles/main.dir/main.cpp.o: ../src/main.cpp
 

@@ -6,4 +6,5 @@ bin/CMakeFiles/main.dir/hello.cpp.o
  /home/chang/c++/HelloWorld/src/hello.cpp
 bin/CMakeFiles/main.dir/main.cpp.o
  ../include/hello.h
+ ../include/libHello.h
  /home/chang/c++/HelloWorld/src/main.cpp

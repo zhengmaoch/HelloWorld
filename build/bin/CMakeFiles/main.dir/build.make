@@ -116,6 +116,7 @@ main_EXTERNAL_OBJECTS =
 ../bin/main: bin/CMakeFiles/main.dir/hello.cpp.o
 ../bin/main: bin/CMakeFiles/main.dir/main.cpp.o
 ../bin/main: bin/CMakeFiles/main.dir/build.make
+../bin/main: lib/libhello.so.1.2
 ../bin/main: bin/CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chang/c++/HelloWorld/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../../bin/main"
 	cd /home/chang/c++/HelloWorld/build/bin && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)

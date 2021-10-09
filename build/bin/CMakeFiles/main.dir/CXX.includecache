@@ -10,6 +10,8 @@
 iostream
 -
 
+../include/libHello.h
+
 /home/chang/c++/HelloWorld/src/hello.cpp
 hello.h
 /home/chang/c++/HelloWorld/src/hello.h
@@ -19,4 +21,6 @@ iostream
 -
 hello.h
 /home/chang/c++/HelloWorld/src/hello.h
+libHello.h
+/home/chang/c++/HelloWorld/src/libHello.h
 

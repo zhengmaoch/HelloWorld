@@ -1,1 +1,1 @@
-/usr/bin/c++    -std=c++11 -g   CMakeFiles/main.dir/hello.cpp.o CMakeFiles/main.dir/main.cpp.o  -o ../../bin/main -rdynamic 
+/usr/bin/c++    -std=c++11 -g   CMakeFiles/main.dir/hello.cpp.o CMakeFiles/main.dir/main.cpp.o  -o ../../bin/main -rdynamic ../lib/libhello.so.1.2 -Wl,-rpath,/home/chang/c++/HelloWorld/build/lib 
